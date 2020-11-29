@@ -65,3 +65,48 @@ At the ```cmd```, run:
 ```
 pip freeze > requirements.txt
 ```
+
+## Build
+
+To compile to an ```.exe``` , run in the venv environment:
+```
+python setup.py py2exe
+```
+
+## Usage
+
+When the program starts, you need to set the size of the hash table, that is an integer greather than 2.
+
+After that, the program will show you the layout of the hash table, and the commands that you'll need to use the program:
+```
+COMMANDS:
+-i, --insert                      insert a key
+-d, --delete                      delete a key
+-s, --search                      search a key and returns it's index
+-h, --hash                        returns the hash rule
+exit                              exit the program
+```
+
+## Example
+
+Creating a table with 12 positions:
+```
+Table size: 12
+
+╒═════╤═════╤═════╤═════╤═════╤═════╤═════╤═════╤═════╤═════╤══════╤══════╕
+│ 0   │ 1   │ 2   │ 3   │ 4   │ 5   │ 6   │ 7   │ 8   │ 9   │ 10   │ 11   │
+╞═════╪═════╪═════╪═════╪═════╪═════╪═════╪═════╪═════╪═════╪══════╪══════╡
+│     │     │     │     │     │     │     │     │     │     │      │      │
+╘═════╧═════╧═════╧═════╧═════╧═════╧═════╧═════╧═════╧═════╧══════╧══════╛
+```
+Inserting a key 12 into the table:
+```
+OPERATION: -i 12
+╒═════╤═════╤═════╤═════╤═════╤═════╤═════╤═════╤═════╤═════╤══════╤══════╕
+│ 0   │ 1   │ 2   │ 3   │ 4   │ 5   │ 6   │ 7   │ 8   │ 9   │ 10   │ 11   │
+╞═════╪═════╪═════╪═════╪═════╪═════╪═════╪═════╪═════╪═════╪══════╪══════╡
+│ 12  │     │     │     │     │     │     │     │     │     │      │      │
+╘═════╧═════╧═════╧═════╧═════╧═════╧═════╧═════╧═════╧═════╧══════╧══════╛
+```
+## More
+For further information visit the [Wiki](https://github.com/LBeghini/Hash-Functions/wiki).
