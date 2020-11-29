@@ -65,12 +65,11 @@ At the ```cmd```, run:
 ```
 pip freeze > requirements.txt
 ```
+## Running
 
-## Build
-
-To compile to an ```.exe``` , run in the venv environment:
+To see the project running, inside the virtual environment at ```cmd```, run:
 ```
-python setup.py py2exe
+python main.py
 ```
 
 ## Usage
