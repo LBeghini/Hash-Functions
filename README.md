@@ -67,10 +67,13 @@ pip freeze > requirements.txt
 ```
 ## Running
 
+### venv:
 To see the project running, inside the virtual environment at ```cmd```, run:
 ```
 python main.py
 ```
+### Release:
+This project provides a [release](https://github.com/LBeghini/Hash-Functions/releases) where you cand download the ```dist.rar```, that includes a file ```main.exe```.
 
 ## Usage
 
