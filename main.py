@@ -10,16 +10,27 @@ TABLE = np.array([])
 def insert(key):
     global TABLE
     index = hashes(key)
+    if TABLE.__contains__(key):
+        return -1
     if TABLE[index] is None:
         TABLE[index] = key
     else:
+        print('FIRST INDEX ALREADY USED.')
         i = 1
-        c = 0
+        d = 0
+        o = index
         while TABLE[index % TABLE.size] is not None:
+            if i > 1:
+                print('FAILED.')
             index = index + i * (-1) ** i
             i = i + 1
-            c = c + 1
-            if c == TABLE.size:
+            if i % 2 == 0:
+                d += 1
+            if (-1) ** i < 0:
+                print(f'TRYING {d} TO RIGHT FROM INDEX {o}', end="... ")
+            else:
+                print(f'TRYING {d} TO LEFT FROM INDEX {o}', end="... ")
+            if i == TABLE.size:
                 return 0
         index = index % TABLE.size
         TABLE[index] = key
@@ -133,10 +144,16 @@ def main():
             input('PRESS ENTER TO CONTINUE \n')
             continue
         if opt.group(1) in ('--insert', '-i') and opt.group(3) != '':
-            if insert(int(opt.group(3))) == 0:
+            status = insert(int(opt.group(3)))
+            if status == 0:
                 print('ERROR: HASH TABLE IS FULL')
                 print("----------------------------------------------------------------------------------------")
-                input('PRESS ENTER TO CONTINUE \n')
+            elif status == -1:
+                print('ERROR: KEY ALREADY USED')
+                print("----------------------------------------------------------------------------------------")
+            else:
+                print('SUCCESS')
+            input('PRESS ENTER TO CONTINUE \n')
         elif opt.group(1) in ('--delete', '-d') and opt.group(3) != '':
             if delete(int(opt.group(3))) == 0:
                 print('ERROR: KEY NOT FOUND')
